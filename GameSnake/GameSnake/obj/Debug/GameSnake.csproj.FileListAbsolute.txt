@@ -1,0 +1,9 @@
+D:\TTCS\Week2\GameSnake\GameSnake\bin\Debug\GameSnake.exe.config
+D:\TTCS\Week2\GameSnake\GameSnake\bin\Debug\GameSnake.exe
+D:\TTCS\Week2\GameSnake\GameSnake\bin\Debug\GameSnake.pdb
+D:\TTCS\Week2\GameSnake\GameSnake\obj\Debug\GameSnake.csprojResolveAssemblyReference.cache
+D:\TTCS\Week2\GameSnake\GameSnake\obj\Debug\GameSnake.FGame.resources
+D:\TTCS\Week2\GameSnake\GameSnake\obj\Debug\GameSnake.Properties.Resources.resources
+D:\TTCS\Week2\GameSnake\GameSnake\obj\Debug\GameSnake.csproj.GenerateResource.Cache
+D:\TTCS\Week2\GameSnake\GameSnake\obj\Debug\GameSnake.exe
+D:\TTCS\Week2\GameSnake\GameSnake\obj\Debug\GameSnake.pdb
