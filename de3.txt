@@ -1,0 +1,19 @@
+3
+Con gi cang to cang nho
+A. Con voi
+B. Con chuot
+C. Con nguoi
+D. Con cua
+D
+Cai gi danh cha danh me, danh chi, danh em?
+A. Cai choi
+B. Cai trong
+C. Cai gay
+D. Cai ban chai danh rang
+D
+Tro gi cang choi cang ra nuoc?
+A. Choi bac
+B. Choi co
+C. Choi XYZ
+D. Choi dan
+B

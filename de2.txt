@@ -1,0 +1,19 @@
+3
+Giao vien co van la?
+A Pham Thi Kim Ngoan
+B Huynh Tuan Anh
+C Mai Cuong Tho
+D Bui Chi Thanh
+A
+Thuc tap co so trong may tuan?
+A 3
+B 4
+C 5
+D 6
+C
+Co may nhom thuc tap co so?
+A 3
+B 4
+C 5
+D 6
+A
