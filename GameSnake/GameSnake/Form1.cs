@@ -12,6 +12,8 @@ namespace GameSnake
 {
     public partial class FGame : Form
     {
+        int level = 1;
+        int score = 0;
         Random randFood = new Random();
         Food food;
         Graphics game_screen;
@@ -22,6 +24,12 @@ namespace GameSnake
 
         private void FGame_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyData == Keys.Space)
+            {
+                timer1.Enabled = true;
+                left = false; right = true; up = false; down = false;
+                label1.Text = "";
+            }
             //snake go up
             if (e.KeyData == Keys.Up && down == false)
             {
@@ -58,6 +66,8 @@ namespace GameSnake
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            toolStripStatusLabelScore.Text = score.ToString();
+            toolStripStatusLabellevel.Text = level.ToString();
             if (up == true)
             {
                 snake.Go_up();
@@ -78,6 +88,27 @@ namespace GameSnake
             {
                 if (snake.SnakeRec[i].IntersectsWith(food.foodRec))
                 {
+                    score += 10;
+                    if (score == 100)
+                    {
+                        timer1.Interval = 250;
+                        level = 2;
+                    }
+                    if (score == 200)
+                    {
+                        timer1.Interval = 200;
+                        level = 3;
+                    }
+                    if (score == 300)
+                    {
+                        timer1.Interval = 150;
+                        level = 4;
+                    }
+                    if (score == 400)
+                    {
+                        timer1.Interval = 100;
+                        level = 5;
+                    }
                     snake.snake_grow_up();
                     food.food_location(randFood);
                 }
@@ -116,20 +147,28 @@ namespace GameSnake
             {
                 if (snake.SnakeRec[0].IntersectsWith(snake.SnakeRec[i]))
                 {
-                    timer1.Enabled = false;
-                    MessageBox.Show("Tự cắn đuôi mà chết");
+                    Restart_game();
                 }
             }
-            if (snake.SnakeRec[0].Y < 0 || snake.SnakeRec[0].Y > 299 )
+            if (snake.SnakeRec[0].Y < 0 || snake.SnakeRec[0].Y > 290)
             {
-                timer1.Enabled = false;
-                MessageBox.Show("Đi đầu vào tường để tự sát à!  =='");
+                Restart_game();
             }
-            if (snake.SnakeRec[0].X < 0 || snake.SnakeRec[0].X > 299)
+            if (snake.SnakeRec[0].X < 0 || snake.SnakeRec[0].X > 290)
             {
-                timer1.Enabled = false;
-                MessageBox.Show("Đi đầu vào tường để tự sát à!  =='");
+                Restart_game();
             }
+        }
+
+        public void Restart_game()
+        {
+            timer1.Enabled = false;
+            label1.Text = "Bấm Space để bắt đầu chơi";
+            toolStripStatusLabelScore.Text = "0";
+            MessageBox.Show("Bạn đã thua!","Gameover!");
+            score = 0;
+            level = 1;
+            snake = new Snake();
         }
     }
 }

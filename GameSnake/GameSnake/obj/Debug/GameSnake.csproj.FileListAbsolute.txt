@@ -7,3 +7,12 @@ D:\TTCS\Week2\GameSnake\GameSnake\obj\Debug\GameSnake.Properties.Resources.resou
 D:\TTCS\Week2\GameSnake\GameSnake\obj\Debug\GameSnake.csproj.GenerateResource.Cache
 D:\TTCS\Week2\GameSnake\GameSnake\obj\Debug\GameSnake.exe
 D:\TTCS\Week2\GameSnake\GameSnake\obj\Debug\GameSnake.pdb
+D:\Tuan-2\GameSnake\GameSnake\bin\Debug\GameSnake.exe.config
+D:\Tuan-2\GameSnake\GameSnake\obj\Debug\GameSnake.exe
+D:\Tuan-2\GameSnake\GameSnake\obj\Debug\GameSnake.pdb
+D:\Tuan-2\GameSnake\GameSnake\bin\Debug\GameSnake.exe
+D:\Tuan-2\GameSnake\GameSnake\bin\Debug\GameSnake.pdb
+D:\Tuan-2\GameSnake\GameSnake\obj\Debug\GameSnake.csprojResolveAssemblyReference.cache
+D:\Tuan-2\GameSnake\GameSnake\obj\Debug\GameSnake.FGame.resources
+D:\Tuan-2\GameSnake\GameSnake\obj\Debug\GameSnake.Properties.Resources.resources
+D:\Tuan-2\GameSnake\GameSnake\obj\Debug\GameSnake.csproj.GenerateResource.Cache
