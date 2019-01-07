@@ -21,10 +21,12 @@ void SavePlayerScore(vector<player> &listP, player &p)
 }
 void printplayer(player &p)
 {
+	//in ra thong tin nguoi choi
 	cout << p.playername << "\t" << p.scores << "\t" << p.bode << endl;
 }
 void printlistplayer(vector<player> &listP)
 {
+	//in ra danh sach nguoi choi
 	for (int i = 0; i < listP.size(); i++)
 	{
 		printplayer(listP[i]);
@@ -32,6 +34,7 @@ void printlistplayer(vector<player> &listP)
 }
 void Docfile(ifstream &f, Question &q)
 {
+	//doc tu file ra cau hoi va dap an
 	getline(f, q.quest);
 	for (int i = 0; i< 4; i++)
 	{
@@ -41,6 +44,7 @@ void Docfile(ifstream &f, Question &q)
 }
 void DocDS(ifstream &f, vector<Question> &listquest)
 {
+	//doc tu file danh sach cac cau hoi
 	int n;
 	f >> n;
 	listquest.resize(n);
@@ -57,9 +61,9 @@ bool checkanswer(Question q)
 	cin.ignore();
 	cout << "Nhap dap an: ";
 	cin >> temp;
-	if (temp[0]>96)
+	if (temp[0]>96)//bien dap an nhap vao tu chu thuong thanh chu hoa de so sanh
 		temp[0] = temp[0] - 32;
-	if (temp == q.correctAnswer)
+	if (temp == q.correctAnswer)//kiem tra dap an
 	{
 		cout << "Dap an dung!" << endl;
 		return true;
@@ -72,6 +76,7 @@ bool checkanswer(Question q)
 }
 void printQ(Question q)
 {
+	//in ra man hinh 1 cau hoi va 4 dap an lua chon
 	cout << q.quest << endl;
 	for (int i = 0; i < 4; i++)
 	{
@@ -80,6 +85,7 @@ void printQ(Question q)
 }
 void printquestion(vector<Question> &listQ, int &dem)
 {
+	//in ra toan bo cau hoi trong file
 	for (int i = 0; i < listQ.size(); i++)
 	{
 		printQ(listQ[i]);
@@ -90,6 +96,7 @@ void printquestion(vector<Question> &listQ, int &dem)
 }
 void Menu()
 {
+	//hien thi cac chuc nang
 	cout << "Chon bo de trac nghiem." << endl;
 	cout << "1: Bo de 1." << endl;
 	cout << "2: Bo de 2." << endl;
@@ -99,6 +106,7 @@ void Menu()
 }
 int chonde()
 {
+	//kiem tra chuc nang nguoi dung chon
 	int chon;
 	cout << "Moi chon bo de: ";
 	cin >> chon;
@@ -116,17 +124,18 @@ void Xulymenu(vector<Question> &list, ifstream &f,vector<player> &listP, int &de
 		{
 		case 1:
 		{
-			system("cls");
-			f.open("de1.txt");
+			system("cls");//xoa man hinh hien thi
+			f.open("de1.txt");//mo de so 1
 			DocDS(f, list);
-			printquestion(list, dem);
+			printquestion(list, dem);//in cac cau hoi
 			KQ = dem;
 			cout << "Moi nhap ten nguoi choi: "; cin.ignore();
-			getline(cin, p.playername);
+			getline(cin, p.playername);//luu thong tin nguoi choi
 			p.bode = "de 1";
 			p.scores = KQ;
 			SavePlayerScore(listP, p);
-			f.close();
+			f.close();//dong file
+			//case 2 va 3 tuong tu.
 			system("pause");
 			break;
 		}
@@ -167,7 +176,7 @@ void Xulymenu(vector<Question> &list, ifstream &f,vector<player> &listP, int &de
 			system("cls");
 			cout << "Diem so:" << endl;
 			cout << "Ten\tDiem\tDe so" << endl;
-			printlistplayer(listP);
+			printlistplayer(listP);//in ra ket qua nguoi choi
 			system("pause");
 			break;
 		}
@@ -182,15 +191,12 @@ void Xulymenu(vector<Question> &list, ifstream &f,vector<player> &listP, int &de
 int main()
 {
 	int dem = 0;
-	ifstream infile;
-	vector<Question> list;
-	vector<player> listP;
+	ifstream infile;//khai bao bien file.
+	vector<Question> list;//tao danh sach cau hoi
+	vector<player> listP;//tao danh sach nguoi choi
 	while (1)
 	{
-		system("cls");
-		Xulymenu(list, infile,listP,dem);
+		system("cls");//xoa man hinh sau moi lua chon
+		Xulymenu(list, infile,listP,dem);//xu ly chuc nang
 	}
-	//	infile.open("de1.txt");
-	//	DocDS(infile,list);
-	//	printquestion(list,dem);
 }

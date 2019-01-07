@@ -12,15 +12,15 @@ namespace GameSnake
 {
     public partial class FGame : Form
     {
-        int level = 1;
-        int score = 0;
+        int level = 1;//biến mức chơi
+        int score = 0;//biến điểm số
         Random randFood = new Random();
         Food food;
         Graphics game_screen;
 
-        Snake snake = new Snake();
+        Snake snake = new Snake();//khai báo rắn
 
-        Boolean left = false, right = false, up = false, down = false;
+        Boolean left = false, right = false, up = false, down = false;//khai báo trạng thái ban đầu
 
         private void FGame_KeyDown(object sender, KeyEventArgs e)
         {
@@ -66,8 +66,8 @@ namespace GameSnake
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            toolStripStatusLabelScore.Text = score.ToString();
-            toolStripStatusLabellevel.Text = level.ToString();
+            toolStripStatusLabelScore.Text = score.ToString();//ép kiểu int sang string để hiển thị điểm
+            toolStripStatusLabellevel.Text = level.ToString();//và mức chơi
             if (up == true)
             {
                 snake.Go_up();
@@ -88,54 +88,45 @@ namespace GameSnake
             {
                 if (snake.SnakeRec[i].IntersectsWith(food.foodRec))
                 {
-                    score += 10;
-                    if (score == 100)
+                    score += 10;//sau khi ăn 1 thức ăn thì điểm tăng lên 10
+                    if (score == 100)//điểm  = 100 thì mức tăng lên 2
                     {
                         timer1.Interval = 250;
                         level = 2;
                     }
-                    if (score == 200)
+                    if (score == 200)//điểm  = 200 thì mức tăng lên 3
                     {
                         timer1.Interval = 200;
                         level = 3;
                     }
-                    if (score == 300)
+                    if (score == 300)//điểm  = 300 thì mức tăng lên 4
                     {
                         timer1.Interval = 150;
                         level = 4;
                     }
-                    if (score == 400)
+                    if (score == 400)//điểm  = 400 thì mức tăng lên 5
                     {
                         timer1.Interval = 100;
                         level = 5;
                     }
-                    snake.snake_grow_up();
-                    food.food_location(randFood);
+                    snake.snake_grow_up();//tăng độ dài rắn sau khi ăn
+                    food.food_location(randFood);//tạo thức ăn
                 }
             }
-            end_game();
+            end_game();//hà khi trò chơi kết thúc
             this.Invalidate();
         }
 
         public FGame()
         {
             InitializeComponent();
-            food = new Food(randFood);
+            food = new Food(randFood);//khơi tạo thức ăn
         }
 
-        private void FGame_Click(object sender, EventArgs e)
-        {
-        //    SolidBrush sb = new SolidBrush(Color.Red);
-
-        //    Graphics g = this.CreateGraphics();
-
-        //    g.FillEllipse(sb, new Rectangle(0, 0, 10, 10));
-        //    g.FillEllipse(sb, new Rectangle(10, 0, 10, 10));
-        //    g.FillEllipse(sb, new Rectangle(20, 0, 10, 10));
-        }
 
         private void FGame_Paint(object sender, PaintEventArgs e)
         {
+            //vẽ con rắn và thức ăn
             game_screen = e.Graphics;
             food.draw_food(game_screen);
             snake.Draw_snake(game_screen);
@@ -143,18 +134,19 @@ namespace GameSnake
 
         public void end_game()
         {
+            //hàm kiểm tra con rắn chết
             for (int i = 1; i < snake.SnakeRec.Length; i++)
             {
-                if (snake.SnakeRec[0].IntersectsWith(snake.SnakeRec[i]))
+                if (snake.SnakeRec[0].IntersectsWith(snake.SnakeRec[i]))//chết vì cắn đuôi
                 {
                     Restart_game();
                 }
             }
-            if (snake.SnakeRec[0].Y < 0 || snake.SnakeRec[0].Y > 290)
+            if (snake.SnakeRec[0].Y < 0 || snake.SnakeRec[0].Y > 290)//chết vì đâm vào tường trái phải
             {
                 Restart_game();
             }
-            if (snake.SnakeRec[0].X < 0 || snake.SnakeRec[0].X > 290)
+            if (snake.SnakeRec[0].X < 0 || snake.SnakeRec[0].X > 290)//chết vì đâm vào tường trên dưới
             {
                 Restart_game();
             }
@@ -162,10 +154,11 @@ namespace GameSnake
 
         public void Restart_game()
         {
+            //làm sự kiến chơi lại trò chơi
             timer1.Enabled = false;
-            label1.Text = "Bấm Space để bắt đầu chơi";
-            toolStripStatusLabelScore.Text = "0";
-            MessageBox.Show("Bạn đã thua!","Gameover!");
+            label1.Text = "Bấm Space để bắt đầu chơi";//thông báo bắt đầu game
+            //thông báo khi kết thúc game
+            MessageBox.Show("Điểm của bạn là: " + score.ToString(), "Gameover!");
             score = 0;
             level = 1;
             snake = new Snake();

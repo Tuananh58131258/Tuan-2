@@ -33,9 +33,9 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelScore = new System.Windows.Forms.ToolStripStatusLabel();
-            this.label1 = new System.Windows.Forms.Label();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabellevel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.label1 = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,15 +69,6 @@
             this.toolStripStatusLabelScore.Size = new System.Drawing.Size(13, 17);
             this.toolStripStatusLabelScore.Text = "0";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(59, 143);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Bấm phím Space để bắt đầu chơi";
-            // 
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
@@ -90,6 +81,15 @@
             this.toolStripStatusLabellevel.Size = new System.Drawing.Size(13, 17);
             this.toolStripStatusLabellevel.Text = "1";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(59, 143);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(168, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Bấm phím Space để bắt đầu chơi";
+            // 
             // FGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -100,8 +100,8 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FGame";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GameSnake";
-            this.Click += new System.EventHandler(this.FGame_Click);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FGame_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FGame_KeyDown);
             this.statusStrip1.ResumeLayout(false);
